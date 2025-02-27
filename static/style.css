@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 95%;
+    height: 90vh;
+    gap: 15px;
+}
+
+/* Panele */
+.panel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Lewy panel: Agenci + ustawienia */
+.panel:first-child {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.change-button {
+    padding: 12px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.change-button.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+.change-button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.separator {
+    margin: 12px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Pola input */
+label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Środkowy panel: Wejście tekstowe */
+.panel:nth-child(2) {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-box {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-box:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.send-button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
+
+/* Prawy panel: Output */
+.panel:nth-child(3) {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.output-box {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #f8f9fa;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+}
+
+/* Przyciski pod outputem */
+.use-button, .copy-button {
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.use-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.copy-button {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.use-button:hover {
+    background-color: #218838;
+}
+
+.copy-button:hover {
+    background-color: #138496;
+}
