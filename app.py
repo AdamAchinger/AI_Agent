@@ -1,21 +1,19 @@
 from flask import Flask
-from routes import init_routes
-from utils import get_token, get_agents
-from google import genai
+from routes import Routes
+from utils import Utils
+from google_client import GoogleClient
 
-app = Flask(__name__, static_folder="static", template_folder=".")
+class App:
+    def __init__(self):
+        self.app = Flask(__name__, static_folder="static", template_folder=".")
+        self.token = Utils.get_token()
+        self.client = GoogleClient(api_key=self.token)
+        self.agents = Utils.get_agents()
+        self.sys_instruct = self.agents.get("Text-Correct", "")
+        Routes.init_routes(self.app, self.client, self.agents, self.sys_instruct)
 
-# Inicjalizacja agenta
-default_agent = "Text-Correct"
-agents = get_agents()
-sys_instruct = agents.get(default_agent, "")
-
-# Inicjalizacja klienta API Google
-token = get_token()
-client = genai.Client(api_key=token) if token else None
-
-# Inicjalizacja tras
-init_routes(app, client, agents, sys_instruct)
+    def run(self):
+        self.app.run(debug=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    App().run()
